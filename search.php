@@ -12,7 +12,7 @@ $result = $conn -> query($sql);
 function doesItExist(array $arr) {
     $data = array(
         'title' => $arr['title'] != false ? $arr['title'] : 'No info',
-        'city' => $arr['stars'] != false ? $arr['stars'] : 'No info',
+        'stars' => $arr['stars'] != false ? $arr['stars'] : 'No info',
         'release_year' => $arr['release_year'] != false ? $arr['release_year'] : 'No info'
     );
     return $data;
@@ -25,7 +25,7 @@ function countMovies($result) {
                   Title: ". $row['title'] ."<br>
                   Release Year: ". $row['release_year'] ."<br>
                   Format: ". $row['format'] ."<br>
-                  Actors: ". $arr['actors'] ."<br>";
+                  Actors: ". $arr['stars'] ."<br>";
         }
         } else {
         echo "No info about this movie";
