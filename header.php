@@ -15,7 +15,6 @@
                 <!-- This is a button toggling the modal -->
                 <button class="uk-button uk-button-default uk-margin-small-right" type="button"
                     uk-toggle="target: #modal-example">Add movie</button>
-
                 <!-- This is the modal -->
                 <div id="modal-example" uk-modal>
                     <div class="uk-modal-dialog uk-modal-body">
@@ -56,9 +55,8 @@
             <div class="uk-margin-right uk-navbar-right">
 
 
-            <form name="search" method="post" action="search.php">
-                <input type="search" name="query" placeholder="Search">
-                <button type="submit">Search</button> 
+            <form action="search.php">
+                <p>Type title of the movie or actor: <input type="text" name="search"> <input type="submit" value="Search"></p>
             </form>
             </div>
         </nav>
