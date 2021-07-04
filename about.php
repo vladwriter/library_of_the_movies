@@ -1,4 +1,3 @@
-
 <?php
 require_once ("header.php");
 echo "<a href='index.php'>Return to the list</a>";

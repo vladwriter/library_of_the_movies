@@ -11,11 +11,6 @@ $year = $_POST['year'];
 $format = $_POST['format']; 
 $stars = $_POST['stars'];
 
-//  echo ($title);
-//  echo ($year);
-//  echo ($format);
-//  echo ($stars);
-
  $sql = "INSERT INTO movies (title, release_year, format, stars) VALUES ('$title','$year','$format', '$stars')";
  if($conn->query($sql)){
      echo "New movie was created!";
@@ -23,6 +18,6 @@ $stars = $_POST['stars'];
      echo "Error: " . $conn->error;
  }
 
- echo"<br><a href='http://localhost/filmsdump/?'>Return to the main page</a>"
+ echo"<br><a href='index.php'>Return to the main page</a>"
 
 ?>

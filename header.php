@@ -48,11 +48,10 @@
                 </div>
             </div>
             <div class="uk-margin">
-                <form enctype="multipart/form-data" method="POST" uk-form-custom="target: true">
-                    <input  name="userfile" type="file">
-                    <input class="uk-input uk-form-width-medium" type="text" placeholder="Upload list" disabled>
-                    <button type="submit" value="Upload" class="uk-button uk-button-default">Upload</button>
-                </form>
+            <form method="POST" action="upload.php" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <input type="submit" name="upload" value="Upload" />
+            </form>
             </div>
             <div class="uk-margin-right uk-navbar-right">
 
