@@ -8,7 +8,7 @@
 <li>Sort list with movies by alphabet</li>
 <li>Search for a movie by title or actor</li>
 <li>Sort list with movies by alphabet</li>
-<li>Import movies from txt-list</li>
+<li>Upload movies from txt-file</li>
 </ul>
 <h2>Features</h2>
 <ul>
