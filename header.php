@@ -24,7 +24,7 @@
                     <fieldset class="uk-fieldset">
                      <legend class="uk-legend">Add new movie</legend>
                     <div class="uk-margin">
-                    <input class="uk-input" type="text" name="title" placeholder="Name of the movie">
+                    <input class="uk-input" type="text" name="title" placeholder="Title of the movie">
                     </div>
                     <div class="uk-margin">
                     <input class="uk-input uk-form-width-small" type="number" min="1850" max="2021" name="year" placeholder="Release Year">

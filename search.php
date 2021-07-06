@@ -9,7 +9,7 @@ $inputSearch = trim(htmlspecialchars($_REQUEST['search']));
 $inputSearch = str_replace("'", "&apos;", $inputSearch);
 $inputSearch = str_replace('"', "&quot;", $inputSearch);
 
-$sql = "SELECT * FROM `movies` WHERE `title` = '$inputSearch' || `stars` = '$inputSearch' || `release_year` = '$inputSearch' || `format` = '$inputSearch'";
+$sql = "SELECT * FROM `movies` WHERE `title` = '$inputSearch' || `title` LIKE '%$inputSearch%' || `stars` LIKE '%$inputSearch%' || `stars` = '$inputSearch' || `release_year` = '$inputSearch' || `format` = '$inputSearch'";
  
 $result = $conn -> query($sql);
 function doesItExist(array $arr) {
