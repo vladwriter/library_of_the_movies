@@ -1,7 +1,7 @@
 <?php
 require ("connection.php");
 require_once ("create_table_movies.php");
-require_once ("header.php");
+require ("header.php");
 ?>
 <main>
     <div class='uk-margin-left'><a href="sort.php">Sort by abc</a></div>

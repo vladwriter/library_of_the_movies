@@ -20,14 +20,14 @@
                 <!-- This is the modal -->
                 <div id="modal-example" uk-modal>
                     <div class="uk-modal-dialog uk-modal-body">
-                    <form method="post" action="addmovie.php">
+                    <form method="post" action="<?php echo htmlspecialchars('addmovie.php');?>">
                     <fieldset class="uk-fieldset">
                      <legend class="uk-legend">Add new movie</legend>
                     <div class="uk-margin">
                     <input class="uk-input" type="text" name="title" placeholder="Name of the movie">
                     </div>
                     <div class="uk-margin">
-                    <input class="uk-input uk-form-width-small" type="text" name="year" placeholder="Release Year">
+                    <input class="uk-input uk-form-width-small" type="number" min="1850" max="2021" name="year" placeholder="Release Year">
                     </div>
                     <div class="uk-margin uk-form-width-small">
                     <select class="uk-select" name="format">
@@ -37,7 +37,7 @@
                         </select>
                     </div>
                 <div class="uk-margin">
-                <textarea class="uk-textarea" name="stars" rows="3" placeholder="textarea"></textarea>
+                <textarea class="uk-textarea" name="stars" rows="3" placeholder="Actors"></textarea>
                 </div>
                 <div class="uk-margin">
                     <button class="uk-button uk-button-primary" type="submit" name="submit">Add movie</button>
@@ -49,7 +49,7 @@
             </div>
             <div class="uk-margin">
             <form method="POST" action="upload.php" enctype="multipart/form-data">
-                <input type="file" name="file" />
+                <input type="file" accept=".txt" name="file" />
                 <input type="submit" name="upload" value="Upload" />
             </form>
             </div>

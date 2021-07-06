@@ -7,9 +7,16 @@ if(isset($_FILES['file'])){
   $file_tmp = $_FILES['file']['tmp_name'];
   $file_type = $_FILES['file']['type'];
 
+  if($file_type !== 'text/plain') die('Not the correct file format, please upload file in txt-format');
+
+  $fp = fopen($file_tmp, 'r');
+
+  $line= file($file_tmp);
+
+  $trimmed = file($file_tmp, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
   $expensions = array("txt");
   
-
   if(empty($errors) == true){
     echo "Success";
   }else{

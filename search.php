@@ -4,7 +4,10 @@ require ("header.php");
 ?>
 <div class='uk-margin-left'><a href="index.php">Open all list</a></div>
 <?php
-$inputSearch = $_REQUEST['search']; 
+
+$inputSearch = htmlspecialchars($_REQUEST['search']); 
+$inputSearch = str_replace("'", "&apos;", $inputSearch);
+$inputSearch = str_replace('"', "&quot;", $inputSearch);
 
 $sql = "SELECT * FROM `movies` WHERE `title` = '$inputSearch' || `stars` = '$inputSearch' || `release_year` = '$inputSearch' || `format` = '$inputSearch'";
  
