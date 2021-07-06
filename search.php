@@ -5,7 +5,7 @@ require ("header.php");
 <div class='uk-margin-left'><a href="index.php">Open all list</a></div>
 <?php
 
-$inputSearch = htmlspecialchars($_REQUEST['search']); 
+$inputSearch = trim(htmlspecialchars($_REQUEST['search'])); 
 $inputSearch = str_replace("'", "&apos;", $inputSearch);
 $inputSearch = str_replace('"', "&quot;", $inputSearch);
 
