@@ -1,4 +1,6 @@
 <?php
+require ("connection.php");
+
 if(isset($_FILES['file'])){
   $errors = array();
   $file = $_FILES['file'];
@@ -9,25 +11,55 @@ if(isset($_FILES['file'])){
 
   if($file_type !== 'text/plain') die('Not the correct file format, please upload file in txt-format');
 
-  $fp = fopen($file_tmp, 'r');
+  $fp = file_get_contents(
+    $file_tmp, FALSE, NULL, 23
+  );
 
-  $line= file($file_tmp);
-
-  $trimmed = file($file_tmp, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
-
-  $expensions = array("txt");
+  $fpArr = explode("\n", $fp);
   
-  if(empty($errors) == true){
-    echo "Success";
-  }else{
-    print $errors;
+  $titles = array();
+  $years = array();
+  $format = array();
+  $stars = array();
+
+  for($i=0; $i<count($fpArr); $i++){
+          $newStr = explode(":", $fpArr[$i]);
+          if($newStr[0] === 'Title'){
+               array_push($titles, $newStr[1]);
+             }
+             if($newStr[0] === 'Release Year'){
+               array_push($years, $newStr[1]);
+             }
+             if($newStr[0] === 'Format'){
+             array_push($format, $newStr[1]);
+             }
+             if($newStr[0] === 'Stars'){
+               array_push($stars, $newStr[1]);
+             }
+             
+    }
+    foreach($titles as $key=>$val){
+    $sql = "INSERT INTO movies (title, release_year, format, stars) VALUES ('$titles[$key]', '$years[$key]','$format[$key]', '$stars[$key]')";
+    if($conn->query($sql)){
+      echo "New movie" .$titles[$key]. "was created!<br>";}
+  }  
+
+    if($conn->query($sql)){
+      echo "New movies were created!";
+  } else{
+      echo "<div class='uk-alert-danger' uk-alert>
+      <a class='uk-alert-close' uk-close></a>
+      <p>This Title is already in the table. Please enter a unique Title!</p>
+     </div>";
   }
 
-  $sql = "
-    LOAD DATA INFILE '$file'
-    INTO TABLE 'movies'
-    LINES STARTING BY 'Title:'||'Release Year:'||'Format:'||'Stars:'
-    IGNORE 1 LINES
-";
+ if(empty($errors) == true){
+  echo "Success";
+}else{
+  print $errors;
 }
+
+}
+
+echo "<br><p class='uk-margin-left'><a href='index.php'>Return to the main page</p></a>";
 ?>
