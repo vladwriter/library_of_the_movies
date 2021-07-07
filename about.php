@@ -19,7 +19,7 @@ if(isset($_GET["id"]))
                         <p>Title: $title</p>
                         <p>Year: $year</p>
                         <p>Format: $format</p>
-                        <p>Year: $stars</p>
+                        <p>Stars: $stars</p>
                     </div>";
             }
         }

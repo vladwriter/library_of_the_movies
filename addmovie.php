@@ -16,13 +16,19 @@ $title = str_replace('"', "&quot;", $title);
 $stars = str_replace("'", "&apos;", $stars);
 $stars = str_replace('"', "&quot;", $stars);
 
-$starsArr = explode("," , $stars);
 
-$starsUnique = array_unique($starsArr, SORT_REGULAR);
+
+$starsArr = explode("," , $stars);
+$newStarsArr = array();
+for($i=0; $i<count($starsArr); $i++){
+    $newStarsArr[$i] = trim($starsArr[$i]);
+}
+
+$starsUnique = array_unique($newStarsArr);
 
 $stars = implode(", ", $starsUnique);
 
-if(empty($title)||empty($stars)) die('Field TITLE or ACTORS is empty! Please add correct title and actors');
+if(empty($title)||empty($stars)) die("Field TITLE or ACTORS is empty! Please add correct title and actors<br><p class='uk-margin-left'><a href='index.php'><button>Return to the main page</button></p></a>");
 
  $sql = "INSERT INTO movies (title, release_year, format, stars) VALUES ('$title','$year','$format', '$stars')";
  if($conn->query($sql)){

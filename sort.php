@@ -6,7 +6,7 @@ require_once ("header.php");
     <main>
     <div class='uk-margin-left'><a href="index.php">Sort by number in database</a></div>
             <?php
-                  $sql = "SELECT * FROM movies ORDER BY BINARY(lower(title)) COLLATE  utf8_unicode_ci";
+                  $sql = "SELECT * FROM movies ORDER BY (trim(lower(title))) COLLATE  utf8_unicode_ci";
                 require_once ("list.php");
                 ?>
         </ul>

@@ -9,7 +9,7 @@ if(isset($_FILES['file'])){
   $file_tmp = $_FILES['file']['tmp_name'];
   $file_type = $_FILES['file']['type'];
 
-  if($file_type !== 'text/plain') die('Not the correct file format, please upload file in txt-format');
+  if($file_type !== 'text/plain') die("Not the correct file format, please upload file in txt-format<br><p class='uk-margin-left'><a href='index.php'><button>Return to the main page</button></p></a>");
 
   $fp = file_get_contents(
     $file_tmp, FALSE, NULL, 23
